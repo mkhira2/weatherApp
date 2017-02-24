@@ -1,0 +1,64 @@
+/*--------------------------------------------------
+ALWAYS INCLUDE
+--------------------------------------------------*/
+
+* {
+    box-sizing: border-box;
+    font-family: 'Scada', cursive;
+}
+
+* img {
+    max-width: 100%;
+}
+
+
+/*--------------------------------------------------
+PAGE RULES
+--------------------------------------------------*/
+
+html {
+    font-size: 16px;
+}
+
+body {
+	background-color: cadetblue;
+    background-size: 100%;
+    text-align: center;
+}
+
+.navBar {
+	margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: yellow;
+}
+
+.weatherContainer h1 {
+	color: black;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: white;
+}
+
+button {
+    font-size: 1.5rem;
+    box-shadow: 2px 2px 2px 2px black;
+    margin: 0 5px;
+    background: black;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    color: grey;
+    background: black;
+}
