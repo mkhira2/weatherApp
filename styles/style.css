@@ -1,44 +1,60 @@
-/*******************
-    ALWAYS USE
-******************/
-html {
-    font-size: 15px;
-}
+/*--------------------------------------------------
+ALWAYS INCLUDE
+--------------------------------------------------*/
+
 * {
     box-sizing: border-box;
-    font-family: "Courier New", Courier, monospace;
+    font-family: Helvetica;
+}
+
+html {
+    font-size: 16px;
 }
 
 img {
     max-width: 100%;
 }
-.weatherContainer{
+
+body {
+    background: cadetblue;
+    text-align: center;
+    padding-top: 25px;
+}
+
+/*--------------------------------------------------
+BASIC LAYOUT
+--------------------------------------------------*/
+
+.weatherContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .navBar {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     border-top: 1px dotted lightgrey;
     border-bottom: 1px dotted lightgrey;
     width: 75%;
     margin: 0 auto;
+    padding-top: 50px;
 }
-.navBar button{
-    width: 50%;
-    font-size: 1.2rem;
-    
-}
-.buttonLink {
-    text-decoration: none;
-    color: black;
 
+.navBar button {
+    width: 50%;
+    font-size: 1.5rem;
 }
 
 .infoContainer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+button {
+    padding: 10px;
+}
+
+h1 {
+    color: yellow;
 }
