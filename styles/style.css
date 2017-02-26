@@ -8,18 +8,16 @@ ALWAYS INCLUDE
 }
 
 html {
-    font-size: 16px;
-}
-
-img {
-    max-width: 100%;
+    font-size: 20px;
 }
 
 body {
-    background: cadetblue;
+    position: relative;
+    background: #394973;
     text-align: center;
     padding-top: 25px;
 }
+
 
 /*--------------------------------------------------
 BASIC LAYOUT
@@ -33,16 +31,10 @@ BASIC LAYOUT
 
 .navBar {
     display: flex;
-    border-top: 1px dotted lightgrey;
-    border-bottom: 1px dotted lightgrey;
     width: 75%;
     margin: 0 auto;
     padding-top: 50px;
-}
-
-.navBar button {
-    width: 50%;
-    font-size: 1.5rem;
+    padding-bottom: 25px;
 }
 
 .infoContainer {
@@ -51,10 +43,76 @@ BASIC LAYOUT
     justify-content: flex-start;
 }
 
+/*--------------------------------------------------
+BUTTON STYLING
+--------------------------------------------------*/
+
 button {
     padding: 10px;
+    background: lightsteelblue;
+    color: lavender;
+    font-weight: bold;
+    box-shadow: 2px 2px 2px 2px black;
+    font-family: Raleway;
+    width: 50%;
+    font-size: 1.5rem;
+    margin: -50px 50px 0 50px;
+}
+
+button:active {
+    background: lavender;
+    color: lightsteelblue;
+}
+
+/*--------------------------------------------------
+FONT STYLING AND SPACING
+--------------------------------------------------*/
+
+p, li {
+    color: limegreen;
+    list-style: none;
+}
+
+li {
+    line-height: 30px
+}
+
+ul {
+    margin-top: 0px;
+}
+
+h1, h2, h3 {
+    color: seagreen;
+    font-weight: bold;
+    font-family: Raleway;
 }
 
 h1 {
-    color: yellow;
+    font-size: 3rem;
+}
+
+h2 {
+    margin-bottom: 0px;
+}
+
+.summary {
+    color: seagreen;
+}
+
+.time {
+    margin: -20px;
+}
+
+/*--------------------------------------------------
+SEARCH BAR
+--------------------------------------------------*/
+
+.search {
+    font-size: 16px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+input {
+    width: 20%
 }
