@@ -53,44 +53,51 @@ function hideGif() { // hides gif on page load
 //--------------------------------------------------
 
 function handleCurrent(currentWeather) { // writes to current page
-   containerNode.innerHTML = ''
-   containerNode.innerHTML += '<h2>' + "Here's your current weather: " + '<hr></h2>'
-                           + '<h3>' + currentWeather.currently.summary + '</h3>'
+   containerNode.innerHTML = '<h2>' + '<i class="fa fa-sun-o" aria-hidden="true"></i>' 
+                           + " Current Weather " 
+                           + '<i class="fa fa-moon-o" aria-hidden="true"></i>' + '<hr></h2>'
+                           + '<div class="box">' + '<h3>' + currentWeather.currently.summary + '</h3>'
                            + '<li> Temperature: ' + Math.round(currentWeather.currently.temperature) + ' degrees</li>'
                            + '<li> Chance of Rain: ' + Math.round(currentWeather.currently.precipProbability) + '%</li>'
                            + '<li> Wind Speed: ' + Math.round(currentWeather.currently.windSpeed) + ' mph</li>'
-                           + '<li> Humidity: ' + Math.round((currentWeather.currently.humidity * 100)) + '%</li>'
+                           + '<li> Humidity: ' + Math.round((currentWeather.currently.humidity * 100)) + '%</li></div>'
                            hideGif()
 }
 
 function handleHourly(hourlyWeather) { // writes to hourly page
-   containerNode.innerHTML = '<h2>' + "Here's your hourly weather: " + '<hr></h2>'
+   containerNode.innerHTML = '<h2>' + '<i class="fa fa-sun-o" aria-hidden="true"></i>' 
+                                    + " Hourly Weather " 
+                                    + '<i class="fa fa-clock-o" aria-hidden="true"></i>' + '<hr></h2>'
    for (var i = 0; i < 12; i++) {
        var currentHour = hourlyWeather.hourly.data[i]
        var hourlyTime = moment.unix(currentHour.time).format('h' + ':00' + 'a')
-       containerNode.innerHTML += '<p><h3 class="time">' + hourlyTime + ': ' + '</h3></p>'
+       containerNode.innerHTML += '<div class="box">' 
+                               + '<p><h3 class="time">' + hourlyTime + ': ' + '</h3></p>'
                                + '<li>' + currentHour.summary + '</li>'
                                + '<li>' + 'Temp: ' + Math.round(currentHour.temperature) + ' degrees</li>'
                                + '<li>' + 'Chance of Rain: ' + Math.round(currentHour.precipProbability) + '%</li>'
                                + '<li> Wind Speed: ' + Math.round(currentHour.windSpeed) + ' mph</li>'
-                               + '<li> Humidity: ' + Math.round((currentHour.humidity * 100)) + '%</li>'
+                               + '<li> Humidity: ' + Math.round((currentHour.humidity * 100)) + '%</li></div>'
                                + '</ br></ br>'
                                hideGif()
    }
 }
 
 function handleDaily(dailyWeather) { // writes to daily page
-   containerNode.innerHTML = '<h2>' + "Here's your daily weather: " + '<hr></h2>'
+   containerNode.innerHTML = '<h2>' + '<i class="fa fa-sun-o" aria-hidden="true"></i>' 
+                                    + " Daily Weather " 
+                                    + '<i class="fa fa-calendar" aria-hidden="true"></i>' + '<hr></h2>'
    for (var i = 0; i < 7; i++) {
        var currentDay = dailyWeather.daily.data[i]
        var day = moment.unix(currentDay.time).format('dddd')
-       containerNode.innerHTML += '<p><h3 class="time">' + day + ': ' + '</h3></p>' 
+       containerNode.innerHTML += '<div class="box">' 
+                               + '<p><h3 class="time">' + day + ': ' + '</h3></p>' 
                                + '<li>' + currentDay.summary + '</li>' 
                                + '<li>' + 'Temp Min: ' + Math.round(currentDay.temperatureMin) + ' degrees</li>'
                                + '<li>' + 'Temp Max: ' + Math.round(currentDay.temperatureMax) + ' degrees</li>'
                                + '<li>' + 'Chance of Rain: ' + Math.round(currentDay.precipProbability) + '%</li>'
                                + '<li> Wind Speed: ' + Math.round(currentDay.windSpeed) + ' mph</li>'
-                               + '<li> Humidity: ' + Math.round((currentDay.humidity * 100)) + '%</li>'
+                               + '<li> Humidity: ' + Math.round((currentDay.humidity * 100)) + '%</li></div>'
                                + '</ br></ br>'
                                hideGif()
    }
@@ -136,7 +143,7 @@ searchInput.addEventListener('keydown', function(eventObj) { // search for a rem
         var cityPromise = $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + inputValue)
         cityPromise.then(handleCityCoords)
         eventObj.target.value = ''
-        searchResults.innerHTML = 'Displaying results for: ' + inputValue
+        searchResults.innerHTML = '<i class="fa fa-map-marker" aria-hidden="true"></i> ' + inputValue
     }
 })
 

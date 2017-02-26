@@ -12,16 +12,10 @@ html {
 }
 
 body {
-    position: relative;
     background: #394973;
     text-align: center;
     padding-top: 25px;
 }
-
-img {
-    width: 35%;
-}
-
 
 /*--------------------------------------------------
 BASIC LAYOUT
@@ -45,6 +39,18 @@ BASIC LAYOUT
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+}
+
+.loadingGif {
+    width: 35%;
+}
+
+.fa {
+    color: yellow;
+}
+
+.fa-map-marker {
+    color: orange;
 }
 
 /*--------------------------------------------------
@@ -108,11 +114,17 @@ h2 {
 }
 
 .searchResults {
-    color: seagreen;
+    color: orange;
     font-style: italic;
     font-size: 24px;
 }
 
+.box {
+    background: lightyellow;
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: 2px 2px 2px 2px black;
+}
 /*--------------------------------------------------
 SEARCH BAR
 --------------------------------------------------*/
