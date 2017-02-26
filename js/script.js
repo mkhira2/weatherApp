@@ -14,12 +14,12 @@ var searchResults = document.querySelector(".searchResults")
 // MOTHERSHIP FUNCTIONS
 //--------------------------------------------------
 
-function controller(currentObj) {
-       var hashStr = location.hash.substr(1),
-           hashParts = hashStr.split('/')
-           latitude = hashParts[0],
-           longitude = hashParts[1],
-           viewType = hashParts[2]
+function controller(currentObj) { // where everything starts
+       var hashStr = location.hash.substr(1), // make location.hash an array, beginning after #
+           hashParts = hashStr.split('/') // separate array by /
+           latitude = hashParts[0] // isolate latitude
+           longitude = hashParts[1] // isolate longitude
+           viewType = hashParts[2] // isolate current/daily/hourly
        var promise = $.getJSON(weatherUrl + '/' + latitude + ',' + longitude + '?callback=?')
        if (viewType === 'current') {
            promise.then(handleCurrent)  
@@ -36,14 +36,14 @@ function controller(currentObj) {
        }
 }
 
-function handleCoords(coordsObj) {
+function handleCoords(coordsObj) { // gets coords on page load (from 'else' in controller)
        var lat = coordsObj.coords.latitude
        var lng = coordsObj.coords.longitude
        var hashString = lat + '/' + lng + '/current'
        location.hash = hashString
 }
 
-function hideGif() {
+function hideGif() { // hides gif on page load
     var loadingGif = document.querySelector('.loadingGif')
     loadingGif.style.display = 'none'
 }
@@ -52,7 +52,7 @@ function hideGif() {
 //FUNCTIONS THAT WRITE TO EACH PAGE
 //--------------------------------------------------
 
-function handleCurrent(currentWeather) {
+function handleCurrent(currentWeather) { // writes to current page
    containerNode.innerHTML = ''
    containerNode.innerHTML += '<h2>' + "Here's your current weather: " + '<hr></h2>'
                            + '<h3>' + currentWeather.currently.summary + '</h3>'
@@ -63,7 +63,7 @@ function handleCurrent(currentWeather) {
                            hideGif()
 }
 
-function handleHourly(hourlyWeather) {
+function handleHourly(hourlyWeather) { // writes to hourly page
    containerNode.innerHTML = '<h2>' + "Here's your hourly weather: " + '<hr></h2>'
    for (var i = 0; i < 12; i++) {
        var currentHour = hourlyWeather.hourly.data[i]
@@ -79,7 +79,7 @@ function handleHourly(hourlyWeather) {
    }
 }
 
-function handleDaily(dailyWeather) {
+function handleDaily(dailyWeather) { // writes to daily page
    containerNode.innerHTML = '<h2>' + "Here's your daily weather: " + '<hr></h2>'
    for (var i = 0; i < 7; i++) {
        var currentDay = dailyWeather.daily.data[i]
@@ -99,38 +99,38 @@ function handleDaily(dailyWeather) {
 //HASH ROUTING CHANGE ON BUTTON CLICK
 //--------------------------------------------------
 
-currentNode.addEventListener('click', function() {
+currentNode.addEventListener('click', function() { // hash change when current clicked
     var hashStr = location.hash.substr(1),
            hashParts = hashStr.split('/')
-           latitude = hashParts[0],
-           longitude = hashParts[1],
+           latitude = hashParts[0]
+           longitude = hashParts[1]
            viewType = hashParts[2]
            location.hash = latitude + '/' + longitude + '/' + 'current'
 })
 
-dailyNode.addEventListener('click', function() {
+hourlyNode.addEventListener('click', function() { // hash change when hourly clicked 
     var hashStr = location.hash.substr(1),
            hashParts = hashStr.split('/')
-           latitude = hashParts[0],
-           longitude = hashParts[1],
-           viewType = hashParts[2]
-           location.hash = latitude + '/' + longitude + '/' + 'daily'
-})
-
-hourlyNode.addEventListener('click', function() {
-    var hashStr = location.hash.substr(1),
-           hashParts = hashStr.split('/')
-           latitude = hashParts[0],
-           longitude = hashParts[1],
+           latitude = hashParts[0]
+           longitude = hashParts[1]
            viewType = hashParts[2]
            location.hash = latitude + '/' + longitude + '/' + 'hourly'
+})
+
+dailyNode.addEventListener('click', function() { // hash change when daily clicked
+    var hashStr = location.hash.substr(1),
+           hashParts = hashStr.split('/')
+           latitude = hashParts[0]
+           longitude = hashParts[1]
+           viewType = hashParts[2]
+           location.hash = latitude + '/' + longitude + '/' + 'daily'
 })
 
 //--------------------------------------------------
 //SEARCH FUNCTION
 //--------------------------------------------------
 
-searchInput.addEventListener('keydown', function(eventObj) {
+searchInput.addEventListener('keydown', function(eventObj) { // search for a remote city
     if (eventObj.keyCode === 13) {
         var inputValue = eventObj.target.value
         var cityPromise = $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + inputValue)
@@ -140,14 +140,15 @@ searchInput.addEventListener('keydown', function(eventObj) {
     }
 })
 
-function handleCityCoords(apiResponse) {
+function handleCityCoords(apiResponse) { // get coords of searched city
     var newLat = apiResponse.results[0].geometry.location.lat
     var newLng = apiResponse.results[0].geometry.location.lng
     location.hash = newLat + '/' + newLng + '/current'
 }
 
 //--------------------------------------------------
-//LETS GET THIS PARTY STARTED
+//LET'S GET THIS PARTY STARTED
 //--------------------------------------------------
+
 window.addEventListener('hashchange', controller)
 controller()
