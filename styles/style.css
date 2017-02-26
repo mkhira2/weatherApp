@@ -18,6 +18,10 @@ body {
     padding-top: 25px;
 }
 
+img {
+    width: 35%;
+}
+
 
 /*--------------------------------------------------
 BASIC LAYOUT
@@ -101,6 +105,12 @@ h2 {
 
 .time {
     margin: -20px;
+}
+
+.searchResults {
+    color: seagreen;
+    font-style: italic;
+    font-size: 24px;
 }
 
 /*--------------------------------------------------

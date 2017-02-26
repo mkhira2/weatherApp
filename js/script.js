@@ -8,6 +8,7 @@ var currentNode = document.querySelector('.current')
 var dailyNode = document.querySelector('.daily')
 var hourlyNode = document.querySelector('.hourly')
 var searchInput = document.querySelector(".search")
+var searchResults = document.querySelector(".searchResults")
 
 //--------------------------------------------------
 // MOTHERSHIP FUNCTIONS
@@ -42,6 +43,11 @@ function handleCoords(coordsObj) {
        location.hash = hashString
 }
 
+function hideGif() {
+    var loadingGif = document.querySelector('.loadingGif')
+    loadingGif.style.display = 'none'
+}
+
 //--------------------------------------------------
 //FUNCTIONS THAT WRITE TO EACH PAGE
 //--------------------------------------------------
@@ -54,6 +60,7 @@ function handleCurrent(currentWeather) {
                            + '<li> Chance of Rain: ' + Math.round(currentWeather.currently.precipProbability) + '%</li>'
                            + '<li> Wind Speed: ' + Math.round(currentWeather.currently.windSpeed) + ' mph</li>'
                            + '<li> Humidity: ' + Math.round((currentWeather.currently.humidity * 100)) + '%</li>'
+                           hideGif()
 }
 
 function handleHourly(hourlyWeather) {
@@ -68,7 +75,7 @@ function handleHourly(hourlyWeather) {
                                + '<li> Wind Speed: ' + Math.round(currentHour.windSpeed) + ' mph</li>'
                                + '<li> Humidity: ' + Math.round((currentHour.humidity * 100)) + '%</li>'
                                + '</ br></ br>'
-
+                               hideGif()
    }
 }
 
@@ -85,6 +92,7 @@ function handleDaily(dailyWeather) {
                                + '<li> Wind Speed: ' + Math.round(currentDay.windSpeed) + ' mph</li>'
                                + '<li> Humidity: ' + Math.round((currentDay.humidity * 100)) + '%</li>'
                                + '</ br></ br>'
+                               hideGif()
    }
 }
 //--------------------------------------------------
@@ -128,6 +136,7 @@ searchInput.addEventListener('keydown', function(eventObj) {
         var cityPromise = $.getJSON('https://maps.googleapis.com/maps/api/geocode/json?address=' + inputValue)
         cityPromise.then(handleCityCoords)
         eventObj.target.value = ''
+        searchResults.innerHTML = 'Displaying results for: ' + inputValue
     }
 })
 
