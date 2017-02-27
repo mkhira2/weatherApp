@@ -57,6 +57,7 @@ function handleCurrent(currentWeather) { // writes to current page
                            + " Current Weather " 
                            + '<i class="fa fa-moon-o" aria-hidden="true"></i>' + '<hr></h2>'
                            + '<div class="box">' + '<h3>' + currentWeather.currently.summary + '</h3>'
+                           // + '<li>' + currentWeather.currently.icon + '</li>'
                            + '<li> Temperature: ' + Math.round(currentWeather.currently.temperature) + ' degrees</li>'
                            + '<li> Chance of Rain: ' + Math.round(currentWeather.currently.precipProbability) + '%</li>'
                            + '<li> Wind Speed: ' + Math.round(currentWeather.currently.windSpeed) + ' mph</li>'
