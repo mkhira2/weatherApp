@@ -94,6 +94,10 @@ button:active {
     color: lightsteelblue;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 /*--------------------------------------------------
 FONT STYLING AND SPACING
 --------------------------------------------------*/
