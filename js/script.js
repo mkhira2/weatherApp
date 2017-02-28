@@ -67,7 +67,7 @@ function handleCurrent(currentWeather) { // writes to current page
 
 function handleHourly(hourlyWeather) { // writes to hourly page
    containerNode.innerHTML = '<h2>' + '<i class="fa fa-sun-o" aria-hidden="true"></i>' 
-                                    + " Hourly Weather " 
+                                    + " 12 Hour Forecast " 
                                     + '<i class="fa fa-clock-o" aria-hidden="true"></i>' + '<hr></h2>'
    for (var i = 0; i < 12; i++) {
        var currentHour = hourlyWeather.hourly.data[i]
@@ -86,7 +86,7 @@ function handleHourly(hourlyWeather) { // writes to hourly page
 
 function handleDaily(dailyWeather) { // writes to daily page
    containerNode.innerHTML = '<h2>' + '<i class="fa fa-sun-o" aria-hidden="true"></i>' 
-                                    + " Daily Weather " 
+                                    + " 7 Day Outlook " 
                                     + '<i class="fa fa-calendar" aria-hidden="true"></i>' + '<hr></h2>'
    for (var i = 0; i < 7; i++) {
        var currentDay = dailyWeather.daily.data[i]

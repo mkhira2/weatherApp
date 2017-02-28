@@ -12,9 +12,13 @@ html {
 }
 
 body {
-    background: url('https://spaceplace.nasa.gov/review/blue-sky/bluesky.en.png');
-    background-size: 100%;
-    background-attachment: fixed;
+    /*background: url('https://spaceplace.nasa.gov/review/blue-sky/bluesky.en.png');*/
+    background: url('https://wallpaperscraft.com/image/lightning_field_road_blackness_bad_weather_sky_peal_elements_60125_1920x1080.jpg');
+    background-repeat:repeat-x;
+    background-attachment:fixed;
+    background-position: center;
+    height:800px;
+    margin:0;
     text-align: center;
     padding-top: 25px;
 }
@@ -55,7 +59,7 @@ BASIC LAYOUT
 }
 
 .fa-map-marker {
-    color: darkslategrey;
+    color: orange;
 }
 
 .box {
@@ -64,6 +68,7 @@ BASIC LAYOUT
     padding: 10px;
     box-shadow: 2px 2px 2px 2px black;
     opacity: .9;
+    width: 35%;
 }
 
 /*--------------------------------------------------
@@ -75,7 +80,8 @@ button {
     background: lightsteelblue;
     color: white;
     font-weight: bold;
-    box-shadow: 2px 2px 2px 2px black;
+    text-shadow: 1px 1px black;
+    box-shadow: 1px 1px 1px 1px black;
     font-family: Raleway;
     width: 50%;
     font-size: 1.5rem;
@@ -106,17 +112,23 @@ ul {
 }
 
 h1, h2, h3 {
-    color: darkgreen;
     font-weight: bold;
     font-family: Raleway;
 }
 
 h1 {
     font-size: 3rem;
+    text-shadow: 3px 3px black;
+    color: white;
 }
 
 h2 {
     margin-bottom: 0px;
+    color: white;
+}
+
+h3 {
+    color: darkgreen;
 }
 
 .summary {
@@ -128,10 +140,10 @@ h2 {
 }
 
 .searchResults {
-    color: darkslategrey;
+    color: orange;
     font-weight: bold;
     font-size: 24px;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 
 /*--------------------------------------------------
