@@ -53,7 +53,7 @@ function hideGif() { // hides gif on page load
 //--------------------------------------------------
 
 function handleCurrent(currentWeather) { // writes to current page
-   containerNode.innerHTML = '<h2>' + '<i class="fa fa-sun-o" aria-hidden="true"></i>' 
+  containerNode.innerHTML = '<h2>' + '<i class="fa fa-sun-o" aria-hidden="true"></i>' 
                            + " Current Weather " 
                            + '<i class="fa fa-moon-o" aria-hidden="true"></i>' + '<hr></h2>'
                            + '<div class="box">' + '<h3>' + currentWeather.currently.summary + '</h3>'

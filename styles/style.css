@@ -44,7 +44,10 @@ BASIC LAYOUT
 }
 
 .loadingGif {
-    width: 35%;
+    width: 20%;
+    border-radius: 10%;
+    opacity: .9;
+
 }
 
 .fa {
