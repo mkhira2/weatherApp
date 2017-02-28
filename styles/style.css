@@ -52,7 +52,7 @@ BASIC LAYOUT
 }
 
 .fa-map-marker {
-    color: orange;
+    color: darkslategrey;
 }
 
 .box {
@@ -60,6 +60,7 @@ BASIC LAYOUT
     margin: 10px;
     padding: 10px;
     box-shadow: 2px 2px 2px 2px black;
+    opacity: .9;
 }
 
 /*--------------------------------------------------
@@ -69,13 +70,14 @@ BUTTON STYLING
 button {
     padding: 10px;
     background: lightsteelblue;
-    color: lavender;
+    color: white;
     font-weight: bold;
     box-shadow: 2px 2px 2px 2px black;
     font-family: Raleway;
     width: 50%;
     font-size: 1.5rem;
     margin: -50px 50px 0 50px;
+    opacity: .9;
 }
 
 button:active {
@@ -123,9 +125,10 @@ h2 {
 }
 
 .searchResults {
-    color: orange;
-    font-style: italic;
+    color: darkslategrey;
+    font-weight: bold;
     font-size: 24px;
+    padding-top: 10px;
 }
 
 /*--------------------------------------------------
@@ -136,6 +139,9 @@ SEARCH BAR
     font-size: 16px;
     text-align: center;
     margin: 15px 0;
+    opacity: .9;
+    height: 30px;
+    border: none;
 }
 
 input {
